@@ -38,7 +38,7 @@ def maxArea():
         arr2.sort()
         m = arr2[len(arr2)-1]
         arr1.append(m)
-        
+
     arr1.sort()
     return arr1[len(arr1)-1]
     
