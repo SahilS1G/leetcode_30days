@@ -28,7 +28,7 @@ def rotate():
 
         # for i in reversed(range(len(matrix))):
 
-        for j in range(len(matrix[1])):
+        for j in range(len(matrix[0])):
             arr2 = []
             i = len(matrix)-1
             while(i >= 0):
