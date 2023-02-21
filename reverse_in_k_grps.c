@@ -29,15 +29,47 @@ The number of nodes in the list is n.
 
 */
 
+
 #include <stdio.h>
+#include <stdlib.h>
 
 struct ListNode {
      int val;
      struct ListNode *next;
 };
 
-struct ListNode* reverseKGroup(struct ListNode* head, int k){
+int traversal(struct ListNode* head)
+{
+    struct ListNode* temp;
+    temp = head;
+    int count = 0;
     
+    while (temp != NULL)
+    {
+        count++;
+        temp = temp->next;
+    }
+    return count;
+    
+}
+
+
+
+struct ListNode* reverseKGroup(struct ListNode* head, int k){  
+        
+        int number_of_nodes = traversal(head);
+        int n;
+        int count = 0;
+        while(n>0)
+        {
+            n = number_of_nodes - k;
+            count++;
+        }
+
+        for (int i; i < k/2;i++)
+        {
+            
+        }
 }
 
 int main()
