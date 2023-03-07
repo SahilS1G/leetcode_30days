@@ -33,47 +33,51 @@ The number of nodes in the list is n.
 #include <stdio.h>
 #include <stdlib.h>
 
+/**
+ * Definition for singly-linked list.
+*/
 struct ListNode {
-     int val;
-     struct ListNode *next;
+    int val;
+    struct ListNode *next;
 };
-
-int traversal(struct ListNode* head)
-{
-    struct ListNode* temp;
-    temp = head;
+ 
+struct ListNode* removeNthFromEnd(struct ListNode* head, int n){
     int count = 0;
-    
+    struct ListNode* temp = head;
     while (temp != NULL)
     {
         count++;
         temp = temp->next;
     }
-    return count;
+    int i = count - n;
+    int j = 0;
+    temp = head;
+    if (n != count)
+    {
+        while(j < i-1)
+    {
+        temp = temp->next;
+        j++;
+    }
+    }
+    else
+    {
+        head = head->next;
+        return head;
+    }
     
-}
-
-
-
-struct ListNode* reverseKGroup(struct ListNode* head, int k){  
-        
-        int number_of_nodes = traversal(head);
-        int n;
-        int count = 0;
-        while(n>0)
-        {
-            n = number_of_nodes - k;
-            count++;
-        }
-
-        for (int i; i < k/2;i++)
-        {
-            
-        }
-}
-
-int main()
-{
-
-    return 0;
+    if (temp->next == NULL)
+    {
+        head = NULL;
+    }
+    else if (temp->next->next == NULL)
+    {
+        temp->next = NULL;
+    }
+    
+    else
+    {
+        temp->next = temp->next->next;
+    }
+    return head;
 }
